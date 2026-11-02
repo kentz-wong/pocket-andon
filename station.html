@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Station · Pocket Andon</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="station-page">
+  <section id="message" class="message" hidden>
+    <h1 id="message-title">Station not found</h1>
+    <a class="big-link" href="/">Back to all stations</a>
+  </section>
+
+  <main id="station" class="station" hidden>
+    <section id="status-block" class="status-block" aria-live="polite">
+      <h1 id="station-name"></h1>
+      <p id="status-label" class="status-label"></p>
+      <p id="status-reason" class="status-detail"></p>
+      <p id="status-note" class="status-detail"></p>
+      <p class="status-timer">in this state for <span id="status-timer">00:00</span></p>
+    </section>
+
+    <section id="status-buttons" class="controls">
+      <button class="action bg-green" data-status="green">Running</button>
+      <button class="action bg-yellow" data-status="yellow">Attention</button>
+      <button class="action bg-red" data-status="red">Line Down</button>
+    </section>
+
+    <section id="reason-panel" class="controls" hidden>
+      <h2 id="reason-title" class="reason-title"></h2>
+      <div class="chips">
+        <button class="chip">Material shortage</button>
+        <button class="chip">Machine fault</button>
+        <button class="chip">Quality issue</button>
+        <button class="chip">Need help</button>
+      </div>
+      <input id="note" class="note" type="text" maxlength="120" autocomplete="off"
+             placeholder="Optional note, then tap a reason" aria-label="Optional note">
+      <button id="cancel" class="action cancel">Cancel</button>
+    </section>
+  </main>
+
+  <script type="module" src="js/station.js"></script>
+</body>
+</html>

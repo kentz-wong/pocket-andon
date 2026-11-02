@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pocket Andon</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body class="landing-page">
+  <main class="landing">
+    <h1>Pocket Andon</h1>
+    <p class="tagline">Pick your station to signal its status.</p>
+    <nav id="stations" class="station-list" aria-label="Stations"></nav>
+    <a class="big-link" href="/board">Open the supervisor board</a>
+    <div class="join">
+      <div id="qr" class="qr"></div>
+      <p>Scan to join</p>
+    </div>
+  </main>
+
+  <script type="module" src="js/index.js"></script>
+</body>
+</html>

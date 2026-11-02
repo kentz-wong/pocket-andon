@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Board · Pocket Andon</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body class="board-page">
+  <header class="summary">
+    <h1>Pocket Andon</h1>
+    <div class="counts">
+      <span class="count bg-green"><b id="count-green">0</b> Running</span>
+      <span class="count bg-yellow"><b id="count-yellow">0</b> Attention</span>
+      <span class="count bg-red"><b id="count-red">0</b> Line Down</span>
+    </div>
+    <span id="reconnecting" class="reconnecting" hidden>Reconnecting…</span>
+    <button id="reset" class="reset">Reset demo</button>
+  </header>
+
+  <div class="board-layout">
+    <main id="grid" class="grid"></main>
+    <aside class="sidebar">
+      <div class="join">
+        <div id="qr" class="qr"></div>
+        <p>Scan to join</p>
+      </div>
+      <h2>Latest events</h2>
+      <ol id="feed" class="feed"></ol>
+    </aside>
+  </div>
+
+  <script type="module" src="js/board.js"></script>
+</body>
+</html>
