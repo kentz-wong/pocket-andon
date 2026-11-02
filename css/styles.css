@@ -65,23 +65,36 @@ h1, h2, p { margin: 0; }
 }
 .qr:empty { display: none; }
 
+.site-footer {
+  padding: 10px 16px;
+  color: var(--muted);
+  font-size: 0.85rem;
+  text-align: center;
+}
+.site-footer a { color: inherit; }
+
 /* ============ Station page ============ */
-.station-page { height: 100dvh; }
+.station-page {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+}
 
 .message {
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 24px;
-  height: 100%;
   padding: 16px;
   text-align: center;
 }
 
 .station {
+  flex: 1;
+  min-height: 0;
   display: flex;
   flex-direction: column;
-  height: 100dvh;
 }
 
 .status-block {
@@ -188,12 +201,24 @@ button:disabled { opacity: 0.6; cursor: wait; }
 .count { padding: 6px 12px; border-radius: 8px; font-size: 1rem; font-weight: 600; }
 .count b { font-size: 1.3rem; font-variant-numeric: tabular-nums; }
 
-.reconnecting {
-  padding: 6px 12px;
-  border-radius: 999px;
-  background: var(--yellow);
-  color: var(--on-yellow);
-  font-weight: 700;
+.live {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-weight: 600;
+}
+.live.is-live { color: var(--text); }
+
+.live-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--muted);
+}
+.live.is-live .live-dot {
+  background: var(--green);
+  box-shadow: 0 0 8px 2px rgb(22 163 74 / 0.8);
 }
 
 .reset {
@@ -286,6 +311,7 @@ button:disabled { opacity: 0.6; cursor: wait; }
 }
 
 .landing h1 { font-size: 2rem; }
+.intro { font-size: 1.05rem; line-height: 1.45; }
 .tagline { color: var(--muted); }
 .station-list { display: flex; flex-direction: column; gap: 8px; }
 

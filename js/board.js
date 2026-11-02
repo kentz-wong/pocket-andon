@@ -146,6 +146,11 @@ function onEventInsert(payload) {
   scheduleRefresh({ withFeed: false });
 }
 
+function setLive(isLive, text) {
+  el('live').classList.toggle('is-live', isLive);
+  el('live-text').textContent = text;
+}
+
 function subscribe() {
   supabase
     .channel('board')
@@ -157,14 +162,14 @@ function subscribe() {
     })
     .subscribe((status) => {
       if (status === 'SUBSCRIBED') {
-        el('reconnecting').hidden = true;
+        setLive(true, 'Live via Supabase Realtime');
         if (wasDisconnected) {
           wasDisconnected = false;
           loadAll().catch((error) => showToast(`Could not refresh: ${error.message}`));
         }
       } else {
         wasDisconnected = true;
-        el('reconnecting').hidden = false;
+        setLive(false, 'Reconnecting…');
       }
     });
 }
@@ -186,6 +191,7 @@ el('reset').addEventListener('click', async () => {
 async function start() {
   renderQr();
   if (!isConfigured) {
+    setLive(false, 'Not connected');
     showToast(NOT_CONFIGURED_MESSAGE);
     return;
   }

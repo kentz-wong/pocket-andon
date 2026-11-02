@@ -50,6 +50,8 @@
 6. **Downtime today** on each board tile (from the `station_downtime_today` view), refreshed whenever an event arrives.
 7. **Live event feed** on the board: last 10 events ("AOI → RED · Quality issue · 14:32").
 8. **QR code** on the board page (corner) and landing page linking to the landing page, so judges can join from their phones.
+11. **Footer** on every page: "Built with Supabase · Postgres + Realtime + RLS", plus a link to the GitHub repo.
+12. **Live status dot** on the board: "● Live via Supabase Realtime", which turns grey and says "Reconnecting…" if the socket drops.
 
 ### P2 — Nice to have
 9. **Reset demo** button on the board (calls `reset_demo()` RPC): all stations back to green, events cleared.
@@ -243,7 +245,7 @@ Leave placeholders. The human fills them in. Do not hardcode real keys anywhere 
 - **Realtime (board):** one channel subscribed to `UPDATE` on `stations` (replace the tile in local state and re-render it) and `INSERT` on `events` (prepend to the feed and re-fetch `station_downtime_today`).
 - **Timers:** compute elapsed time client-side from `status_since`, ticking once per second with a single `setInterval` for the whole page. Format as `mm:ss`, or `h:mm:ss` past one hour.
 - **Initial load:** fetch stations ordered by `position`. Board also fetches the downtime view and the last 10 events, joined to station names client-side.
-- **Error handling:** if an update fails, show a small red toast with the error message. If realtime disconnects, show a "Reconnecting…" badge on the board.
+- **Error handling:** if an update fails, show a small red toast with the error message. If realtime disconnects, the board's live status dot turns grey and says "Reconnecting…".
 - **Invalid station id:** show "Station not found" with a link back to `/`.
 
 ### 6.4 Layout & style

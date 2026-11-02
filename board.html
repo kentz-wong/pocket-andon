@@ -15,7 +15,7 @@
       <span class="count bg-yellow"><b id="count-yellow">0</b> Attention</span>
       <span class="count bg-red"><b id="count-red">0</b> Line Down</span>
     </div>
-    <span id="reconnecting" class="reconnecting" hidden>Reconnecting…</span>
+    <span id="live" class="live" role="status"><span class="live-dot"></span><span id="live-text">Connecting…</span></span>
     <button id="reset" class="reset">Reset demo</button>
   </header>
 
@@ -30,6 +30,11 @@
       <ol id="feed" class="feed"></ol>
     </aside>
   </div>
+
+  <footer class="site-footer">
+    Built with Supabase · Postgres + Realtime + RLS ·
+    <a href="https://github.com/kentz-wong/pocket-andon" target="_blank" rel="noopener">GitHub</a>
+  </footer>
 
   <script type="module" src="js/board.js"></script>
 </body>
